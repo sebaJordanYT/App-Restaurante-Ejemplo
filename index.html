@@ -12,15 +12,17 @@
   <link rel="preload" href="imagesCompress/pizzaBanner3.jpg" as="image">
   <link rel="preload" href="imagesCompress/pizzaBanner4.jpg" as="image">
   <!--SEO-->
-  
+
   <!-- HTML Meta Tags -->
-  <meta name="description" content="Pagina de ejemplo del portafolio de Sebastian Jordan, programador y analista en sistemas">
+  <meta name="description"
+    content="Pagina de ejemplo del portafolio de Sebastian Jordan, programador y analista en sistemas">
 
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://sebajordanyt.github.io/Pagina-Restaurante-Ejemplo/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Página ejemplo del portfolio de Sebastian Jordan">
-  <meta property="og:description" content="Pagina de ejemplo del portafolio de Sebastian Jordan, programador y analista en sistemas">
+  <meta property="og:description"
+    content="Pagina de ejemplo del portafolio de Sebastian Jordan, programador y analista en sistemas">
   <meta property="og:image" content="imagesCompress/logoEjemplo.png">
   <meta property="og:image:alt" content="Una fotografia de Sebastian Jordan">
 
@@ -29,7 +31,8 @@
   <meta property="twitter:domain" content="sebajordanyt.github.io">
   <meta property="twitter:url" content="https://sebajordanyt.github.io/Pagina-Restaurante-Ejemplo/">
   <meta name="twitter:title" content="Página ejemplo del portfolio de Sebastian Jordan">
-  <meta name="twitter:description" content="Pagina de ejemplo del portafolio de Sebastian Jordan, programador y analista en sistemas">
+  <meta name="twitter:description"
+    content="Pagina de ejemplo del portafolio de Sebastian Jordan, programador y analista en sistemas">
   <meta name="twitter:image" content="">
 
   <!--Styles-->
@@ -148,7 +151,7 @@
       </div>
     </div>
   </section>
-  
+
   <!--Div simple-->
   <section class="simple-background" id="sobre-nosotros">
     <div class="simple-background-content">
@@ -189,17 +192,16 @@
   <section class="contact-info" id="contact">
     <div class="form-info">
       <h3>Esperamos tu mensaje!</h3>
-      <form id="my-form" action="https://formsubmit.co/sebajordan88@gmail.com" method="POST">
-        <div class="mb-3">
-          <input type="text" class="form-control" id="name" name="name" placeholder="Nombre*" required>
-        </div>
-        <div class="mb-3">
-          <input type="email" class="form-control" id="email" name="email" placeholder="email*" required>
-        </div>
-        <div class="mb-3">
-          <input type="text" id="message" name="message" required placeholder="Mensaje*" class="form-control">
-        </div>
+      <form action="https://formsubmit.co/d7e2b909279346c7d138306ab144dc49" method="POST">
+        <input type="text" name="name" class="form-control" id="name" placeholder="Nombre*" required>
+        <input type="email" name="email" class="form-control" id="email" placeholder="email*" required>
+        <input type="text" name="message" id="message" required placeholder="Mensaje*" class="form-control">
         <button type="submit" class="btn btn-primary">Enviar</button>
+        
+        <input type="hidden" name="_next" value="http://127.0.0.7:5500/">
+
+        <input type="hidden" name="_captcha" value="false">
+
         <p id="small-text"> *Nota: nunca compartiremos tu email con alguien más. </p>
         <p id="success-message" style="display:none;">¡Mensaje enviado correctamente!</p>
       </form>
