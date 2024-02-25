@@ -189,12 +189,12 @@
   <section class="contact-info" id="contact">
     <div class="form-info">
       <h3>Esperamos tu mensaje!</h3>
-      <form id="my-form">
+      <form id="my-form" action="form.php" method="post">
         <div class="mb-3">
-          <input type="text" class="form-control" id="name" placeholder="Nombre*" required>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Nombre*" required>
         </div>
         <div class="mb-3">
-          <input type="email" class="form-control" id="email" placeholder="email*" required>
+          <input type="email" class="form-control" id="email" name="email" placeholder="email*" required>
         </div>
         <div class="mb-3">
           <input type="text" id="message" name="message" required placeholder="Mensaje*" class="form-control">
