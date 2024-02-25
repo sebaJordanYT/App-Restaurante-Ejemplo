@@ -1,0 +1,492 @@
+*{
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/*-----------------------navbar--------------------------------*/
+.navbar-nav .nav-item .nav-link {
+    transition: box-shadow 0.3s ease; /* Agrega una transición suave para el efecto */
+}
+  
+.navbar-nav .nav-item .nav-link:hover,
+  .navbar-nav .nav-item.active .nav-link {
+    box-shadow: 0 2px 0 white;
+  }
+
+/*Observación,se ponene varios componentes por las jerarquias:
+La definición del selector .navbar-nav .nav-item .nav-link especifica que solo se aplicará a elementos .nav-link que
+ sean descendientes de elementos .nav-item, que a su vez sean descendientes de elementos .navbar-nav. Si hay otro elemento
+ .nav-link que no cumple con esta estructura específica, ese elemento no se verá afectado por este conjunto particular de estilos.
+*/
+
+
+/*-------------------------Banner-----------------------------*/
+.banner {
+  position: relative;
+  width: 100%;
+  height: calc( 100vh);
+  background-color: #F5F5F5;
+  background-size: cover;
+  background-position: center;
+  transition: all .1s ease-in-out;
+  background-image: url('imagesCompress/pizzaBanner.jpg');
+  animation: bannerEffect 24s infinite linear;
+}
+
+.banner-content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #FFF;
+  background-color: rgba(0, 22, 35, 0.6); /*rgba(0, 22, 40, .6)*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-content h1{
+  margin: 0;
+  padding: 0;
+  padding-bottom: 30px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.banner-content a{
+  text-decoration: none;
+  color: #FFF;
+  padding: 9px 20px;
+  border: 1px solid #FFF;
+  text-transform: uppercase;
+  transition: all .3s ease-in-out;
+}
+
+.banner-content a:hover{
+  background-color: #FFF;
+  color: #333;
+}
+
+/*Tengo 4 imagenes por lo tanto cada una se llevara 25 porciento del total de la animacion que es 100, el 0,100 al innicio es para que al pasar de la ultima a la primera no sea brusco*/
+@keyframes bannerEffect { 
+  0%{
+    background-image: url('imagesCompress/pizzaBanner.jpg');
+  }
+  25%{
+    background-image: url('imagesCompress/pizzaBanner.jpg');
+  }
+  26%{
+    background-image: url('imagesCompress/pizzaBanner3.jpg');
+  }
+  50%{
+    background-image: url('imagesCompress/pizzaBanner3.jpg');
+  }
+  51%{
+    background-image: url('imagesCompress/pizzaBanner4.jpg');
+  }
+  75%{
+    background-image: url('imagesCompress/pizzaBanner4.jpg');
+  }
+  76%{
+    background-image: url('imagesCompress/pizzaBanner2.jpg');
+  }
+  100%{
+    background-image: url('imagesCompress/pizzaBanner2.jpg');
+  }
+}
+
+/*-----------------------------Logo (o frase) autoscroll------------------------------*/
+.logos{
+  overflow: hidden;
+  padding: 20px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before{
+  left: 0;
+  background: linear-gradient(to left, rgba(255,255,255,0), white);
+}
+
+.logos:after{
+  right: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0), white);
+}
+
+/* Por si quiero que al pasar el cursor se detengan
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+*/
+
+.logos-slide{
+  display: inline-block;
+  animation: 30s slideLogos infinite linear;
+}
+
+.logos-slide img {
+  height: 50px;
+  margin: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .logos-slide img {
+    height: 35px;
+    margin: 0;
+  }
+  .logos {
+    padding: 10px 0;
+  }
+}
+
+@keyframes slideLogos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/*-----------------------------Imagenes autoscroll------------------------------*/
+.scrolling-container {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.scrolling-container img {
+  width: 100vw; /* Ajusta el ancho de las imágenes según tus necesidades */
+  height: auto;
+  display: inline-block;
+  animation: scroll 10s linear infinite; /* Ajusta la duración y otros parámetros según tus necesidades */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%); /* Ajusta el porcentaje según la cantidad de imágenes */
+  }
+}
+
+/*---------------------------Imagen con efecto parallax-------------------------*/
+/*
+.parallax {
+  background: #fff url('imagesCompress/pizzaPortada1B&W.jpg') fixed no-repeat center top / cover;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.parallax-content{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #FFF;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.parallax-content div {
+  margin: 80px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .parallax-content {
+    flex-direction: column;
+  }
+
+  .parallax-content > div {
+    margin-bottom: 20px;
+    font-size: 2vh;
+  }
+}
+*/
+/*--------------------Parallax con js-------------------------*/
+.contenedor-parallax{
+  position: relative;
+  height: 100vh;
+  overflow: hidden; /*para que lo restante del contenedor se esconda*/
+}
+
+.parallax-js{
+  position: absolute;
+  width: 100%;
+  background-image: url('imagesCompress/pizzaNuevaB&W.jpg');
+  background-size: cover;
+  height: 100vh; /*Debe ser tan alto como la pantalla, y el contenedor chico, que es como la ventana*/
+  margin: -105vh 0 0; /*Ajusto el margen segun la posicion inicial de la imagen en la pagina*/
+  background-position: center;
+  z-index: -1;
+}
+
+.parallax-js::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajusta el color y la opacidad según tus preferencias */
+}
+
+.parallax-content-js{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #FFF;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.parallax-content-js div {
+  margin: 80px; /* Puedes ajustar el valor según la cantidad de espacio deseada */
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .parallax-content-js {
+    flex-direction: column;
+  }
+
+  .parallax-content-js > div {
+    font-size: 2vh;
+    margin: 40px;
+  }
+}
+
+/*--------------------------Texto con fondo simple---------------------------*/
+.simple-background{
+  position: relative;
+  width: 100%;
+  height: calc( 100vh - 50px );
+  background-color: #F5F5F5;
+  background-size: cover;
+  background-position: center;
+  background-image: url('imagesCompress/pizzeria.jpg');
+}
+
+.simple-background-content{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #FFF;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.simple-background-content p{
+  text-align:center;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+@media only screen and (max-width: 768px) {
+  .simple-background-content p {
+    margin: 0 10px; /* Ajusta los márgenes para pantallas más pequeñas */
+  }
+}
+
+/*----------------------Texto con fondo simple (2 seccioens)------------------*/
+.simple-background-2{
+  display: flex;
+  text-align: center;
+}
+
+
+.bebidas{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url('imagesCompress/bebida.jpg');
+}
+
+.postres{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url('imagesCompress/postre.jpg');
+}
+
+.fondo-oscuro{
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fondo-oscuro p {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+@media (max-width: 900px) {
+  .simple-background-2 {
+    flex-direction: column; /* Cambia a column cuando el ancho de la pantalla es menor o igual a 768px */
+  }
+}
+
+/*----------------------------Contact info--------------------------------*/
+#contact-title {
+  margin: 0;
+  background-color: #2F2E2E;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.contact-info {
+  background-color: #2F2E2E;
+  color: white;
+  display: flex;
+  text-align: center;
+}
+
+.contact-info > div {
+  flex: 1;
+  padding: 6vh;
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 25vh 5vh; /*Top, right & left, bottom*/
+}
+
+.form-info{
+  text-align:left;
+}
+
+.form-info h3{
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+#small-text{
+  margin: 30px;
+  text-align: center;
+}
+
+#success-message{
+  color: #198754;
+  text-align:center;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.aditional-info p {
+  line-height: 3vh;
+  font-size: 2vh;
+}
+
+@media (max-width: 768px) {
+  .contact-info {
+    flex-direction: column;
+  }
+
+  .contact-info > div {
+    width: 100%;
+  }
+
+  .aditional-info p {
+    text-align: center;
+    margin-bottom: 1vh;
+    font-size: 2vh;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: 0; /*Top, right & left, bottom*/
+  }
+}
+
+/*------------------------------Footer----------------------------*/
+footer p {
+  line-height: 6px;
+}
+
+/*--------------Para la carta-----------------*/
+
+.iframe-container{
+  margin: 0 auto;
+  position: relative;
+  width: 60%;
+  height: 80%;
+  overflow: hidden;
+  border-radius: 10px;
+  will-change: transform;
+  margin-bottom: 20%;
+}
+
+
+#menu-iframe{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu-body{
+  background-image: url('imagesCompress/menu-fondo.jpg');
+  background-size: cover; /* Puedes ajustar 'cover' según tus necesidades */
+  background-position: center center;
+}
+
+.menu-title{
+  color: white;
+  text-align: center;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+}
